@@ -3,6 +3,7 @@ import { Terminal, Brain, Bot, Sparkles, ChevronDown, ChevronUp, Code2, Layers, 
 import { ScrollCodeAnimation } from './components/ScrollCodeAnimation';
 import { InteractiveDemo } from './components/InteractiveDemo';
 import { BackgroundGlow } from './components/BackgroundGlow';
+import { LightningStrike } from './components/LightningStrike';
 
 function AccordionItem({ title, content }: { title: string, content: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +27,10 @@ function AccordionItem({ title, content }: { title: string, content: string }) {
 
 function App() {
   return (
-    <div className="min-h-screen bg-background-main selection:bg-nxl-violet/30 selection:text-white relative">
+    <div className="min-h-screen selection:bg-nxl-violet/30 selection:text-white relative bg-transparent">
       <BackgroundGlow />
-      {/* Navbar */}
+      <div className="relative z-10">
+        {/* Navbar */}
       <nav className="border-b border-white/5 bg-background-main/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2 font-mono font-bold text-white tracking-tight">
@@ -84,35 +86,39 @@ function App() {
         </section>
 
         {/* The Great Consolidation Section */}
-        <section className="mt-32 mb-32">
-          <div className="kicker mb-8 text-center text-nxl-violet">The All-in-One Killer</div>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black font-sans tracking-tight mb-6">
-              Cancele suas assinaturas.<br/>
-              <span className="text-white/40">O NexusIDE substitui sua stack inteira.</span>
-            </h2>
-            <p className="text-white/50 max-w-2xl mx-auto font-sans">
-              Por que pagar por 6 ferramentas que não se conversam se você pode ter uma única fonte da verdade? 
-              O NexusIDE unifica planejamento, execução e automação em um só motor.
-            </p>
-          </div>
+        <section className="mt-32 mb-32 relative overflow-hidden bg-[#050505] rounded-3xl border border-white/5 min-h-[500px] flex items-center justify-center">
+          <LightningStrike />
+          
+          <div className="relative z-30 p-12 w-full">
+            <div className="kicker mb-8 text-center text-nxl-violet">The All-in-One Killer</div>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-black font-sans tracking-tight mb-6">
+                Cancele suas assinaturas.<br/>
+                <span className="text-white/40">O NexusIDE substitui sua stack inteira.</span>
+              </h2>
+              <p className="text-white/50 max-w-2xl mx-auto font-sans">
+                Por que pagar por 6 ferramentas que não se conversam se você pode ter uma única fonte da verdade? 
+                O NexusIDE unifica planejamento, execução e automação em um só motor.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { label: "Notion / ClickUp", sub: "Planejamento Morto", replace: "NXL Canvas & Strategy" },
-              { label: "HubSpot / CRM", sub: "Registro de Passado", replace: "Strategic Dashboard" },
-              { label: "n8n / Zapier", sub: "Automações Frágeis", replace: "Autonomous Agents" },
-              { label: "ChatGPT / Claude", sub: "Prompting Solto", replace: "Knowledge Vault + IDE" },
-            ].map((item, i) => (
-              <div key={i} className="bg-[#111] border border-white/5 p-6 rounded-2xl group hover:border-nxl-violet/30 transition-all">
-                <div className="text-[11px] font-mono text-white/30 line-through mb-1 uppercase tracking-widest">{item.label}</div>
-                <div className="text-[13px] text-white/40 mb-4">{item.sub}</div>
-                <div className="w-full h-px bg-white/5 mb-4 group-hover:bg-nxl-violet/20"></div>
-                <div className="text-[14px] font-bold text-nxl-violet flex items-center gap-2">
-                  <Zap className="w-3.5 h-3.5" /> {item.replace}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { label: "Notion / ClickUp", sub: "Planejamento Morto", replace: "NXL Canvas & Strategy" },
+                { label: "HubSpot / CRM", sub: "Registro de Passado", replace: "Strategic Dashboard" },
+                { label: "n8n / Zapier", sub: "Automações Frágeis", replace: "Autonomous Agents" },
+                { label: "ChatGPT / Claude", sub: "Prompting Solto", replace: "Knowledge Vault + IDE" },
+              ].map((item, i) => (
+                <div key={i} className="bg-[#111] border border-white/5 p-6 rounded-2xl group hover:border-nxl-violet/30 transition-all">
+                  <div className="text-[11px] font-mono text-white/30 line-through mb-1 uppercase tracking-widest">{item.label}</div>
+                  <div className="text-[13px] text-white/40 mb-4">{item.sub}</div>
+                  <div className="w-full h-px bg-white/5 mb-4 group-hover:bg-nxl-violet/20"></div>
+                  <div className="text-[14px] font-bold text-nxl-violet flex items-center gap-2">
+                    <Zap className="w-3.5 h-3.5" /> {item.replace}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
@@ -289,10 +295,10 @@ function App() {
           </div>
           
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[800px]">
+            <table className="w-full text-left border-collapse min-w-[900px]">
               <thead>
                 <tr className="border-b border-white/10">
-                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">Feature</th>
+                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">Feature Core</th>
                   <th className="py-4 px-6 text-nxl-violet font-sans text-sm uppercase">NexusIDE</th>
                   <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">Notion</th>
                   <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">HubSpot</th>
@@ -304,19 +310,24 @@ function App() {
                 {[
                   { f: "Planejamento Executável", n: "Sim (NXL)", s: "Texto Morto", h: "Formulários", a: "Só Lógica", c: "Só Chat" },
                   { f: "IA Auditável (Patches)", n: true, s: false, h: false, a: false, c: false },
-                  { f: "Sync Multi-View", n: "Instantâneo", s: "Manual", h: "Engessado", a: "N/A", c: false },
-                  { f: "Agentes Autônomos", n: "Nativo", s: false, h: "Workflow", a: true, c: false },
-                  { f: "Propriedade dos Dados", n: "Cofre Local", s: "Cloud SaaS", h: "Cloud SaaS", a: "Cloud SaaS", c: "Cloud SaaS" },
-                  { f: "Compatível com Git", n: true, s: false, h: false, a: "JSON", c: false },
-                  { f: "BYOK (Custo de API)", n: true, s: false, h: false, a: true, c: false },
+                  { f: "Import de Conhecimento", n: "@knowledge", s: "Copia/Cola", h: "Database", a: "JSON", c: "Upload manual" },
+                  { f: "Agentes Autônomos", n: "Nativo (Cron)", s: false, h: "Workflows", a: true, c: false },
+                  { f: "Simulação (Dry-Run)", n: true, s: false, h: false, a: true, c: false },
+                  { f: "Sync Multi-View", n: "Real-time", s: "Manual", h: "Engessado", a: "N/A", c: false },
+                  { f: "A/B Testing Nativo", n: "@testAB", s: "Externo", h: "Premium", a: false, c: false },
+                  { f: "Compatível com Git", n: true, s: false, h: false, a: "Limitado", c: false },
+                  { f: "Offline-First", n: true, s: false, h: false, a: false, c: false },
+                  { f: "BYOK (Custo API Zero)", n: true, s: false, h: false, a: true, c: false },
+                  { f: "Marketing IntelliSense", n: true, s: false, h: false, a: false, c: false },
+                  { f: "Extensibilidade", n: "Módulos NXL", s: "Proprietário", h: "Proprietário", a: true, c: "GPTs" },
                 ].map((row, i) => (
                   <tr key={i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                    <td className="py-6 px-6 font-sans font-medium">{row.f}</td>
-                    <td className="py-6 px-6 text-nxl-green font-bold text-[12px]">{row.n === true ? <Check className="w-5 h-5" /> : row.n}</td>
-                    <td className="py-6 px-6 text-white/30 text-[12px]">{row.s === false ? <X className="w-4 h-4" /> : row.s}</td>
-                    <td className="py-6 px-6 text-white/30 text-[12px]">{row.h === false ? <X className="w-4 h-4" /> : row.h}</td>
-                    <td className="py-6 px-6 text-white/30 text-[12px]">{row.a === false ? <X className="w-4 h-4" /> : row.a === true ? <Check className="w-4 h-4 opacity-40" /> : row.a}</td>
-                    <td className="py-6 px-6 text-white/30 text-[12px]">{row.c === false ? <X className="w-4 h-4" /> : row.c}</td>
+                    <td className="py-5 px-6 font-sans font-medium text-[13px]">{row.f}</td>
+                    <td className="py-5 px-6 text-nxl-green font-bold text-[12px]">{row.n === true ? <Check className="w-5 h-5" /> : row.n}</td>
+                    <td className="py-5 px-6 text-white/30 text-[11px] uppercase tracking-wider">{row.s === false ? <X className="w-4 h-4" /> : row.s}</td>
+                    <td className="py-5 px-6 text-white/30 text-[11px] uppercase tracking-wider">{row.h === false ? <X className="w-4 h-4" /> : row.h}</td>
+                    <td className="py-5 px-6 text-white/30 text-[11px] uppercase tracking-wider">{row.a === false ? <X className="w-4 h-4" /> : row.a === true ? <Check className="w-4 h-4 opacity-40" /> : row.a}</td>
+                    <td className="py-5 px-6 text-white/30 text-[11px] uppercase tracking-wider">{row.c === false ? <X className="w-4 h-4" /> : row.c}</td>
                   </tr>
                 ))}
               </tbody>
@@ -445,11 +456,12 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-8 text-center">
+      <footer className="border-t border-white/5 py-8 text-center relative z-20">
         <p className="font-mono text-[12px] text-white/30">
           © {new Date().getFullYear()} NexusIDE. Absolute Dark UI.
         </p>
       </footer>
+      </div>
     </div>
   );
 }
