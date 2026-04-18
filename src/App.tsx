@@ -81,6 +81,39 @@ function App() {
           </div>
         </section>
 
+        {/* The Great Consolidation Section */}
+        <section className="mt-32 mb-32">
+          <div className="kicker mb-8 text-center text-nxl-violet">The All-in-One Killer</div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black font-sans tracking-tight mb-6">
+              Cancele suas assinaturas.<br/>
+              <span className="text-white/40">O NexusIDE substitui sua stack inteira.</span>
+            </h2>
+            <p className="text-white/50 max-w-2xl mx-auto font-sans">
+              Por que pagar por 6 ferramentas que não se conversam se você pode ter uma única fonte da verdade? 
+              O NexusIDE unifica planejamento, execução e automação em um só motor.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: "Notion / ClickUp", sub: "Planejamento Morto", replace: "NXL Canvas & Strategy" },
+              { label: "HubSpot / CRM", sub: "Registro de Passado", replace: "Strategic Dashboard" },
+              { label: "n8n / Zapier", sub: "Automações Frágeis", replace: "Autonomous Agents" },
+              { label: "ChatGPT / Claude", sub: "Prompting Solto", replace: "Knowledge Vault + IDE" },
+            ].map((item, i) => (
+              <div key={i} className="bg-[#111] border border-white/5 p-6 rounded-2xl group hover:border-nxl-violet/30 transition-all">
+                <div className="text-[11px] font-mono text-white/30 line-through mb-1 uppercase tracking-widest">{item.label}</div>
+                <div className="text-[13px] text-white/40 mb-4">{item.sub}</div>
+                <div className="w-full h-px bg-white/5 mb-4 group-hover:bg-nxl-violet/20"></div>
+                <div className="text-[14px] font-bold text-nxl-violet flex items-center gap-2">
+                  <Zap className="w-3.5 h-3.5" /> {item.replace}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Scroll-Linked Animation Section */}
         <ScrollCodeAnimation />
 
@@ -102,6 +135,40 @@ function App() {
           </div>
           
           <InteractiveDemo />
+
+          {/* Before vs After Flow */}
+          <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5">
+              <div className="flex items-center gap-2 mb-6 text-[#ef4444]">
+                <X className="w-5 h-5" />
+                <span className="text-[12px] font-black uppercase tracking-widest">O Fluxo Caótico (Antigo)</span>
+              </div>
+              <ul className="space-y-4 text-[14px] text-white/40 font-sans">
+                <li className="flex gap-3"><span>1.</span> Documento no Notion para estratégia (estático).</li>
+                <li className="flex gap-3"><span>2.</span> Abre ChatGPT, copia contexto (perda de tom).</li>
+                <li className="flex gap-3"><span>3.</span> Cria tarefas manuais no ClickUp (erro humano).</li>
+                <li className="flex gap-3"><span>4.</span> Configura n8n para tentar automatizar (complexo).</li>
+                <li className="flex gap-3"><span>5.</span> Preenche planilha para ver métricas (retrovisor).</li>
+              </ul>
+              <div className="mt-8 text-[11px] font-mono text-[#ef4444]/60 uppercase tracking-tighter">Resultado: 15 abas abertas e fadiga mental.</div>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-nxl-violet/5 border border-nxl-violet/20 relative overflow-hidden shadow-[0_0_50px_rgba(139,63,220,0.1)]">
+              <div className="absolute top-0 right-0 p-4 opacity-5"><Cpu className="w-32 h-32 text-nxl-violet" /></div>
+              <div className="flex items-center gap-2 mb-6 text-nxl-green">
+                <Check className="w-5 h-5" />
+                <span className="text-[12px] font-black uppercase tracking-widest">O Fluxo Nexus (Futuro)</span>
+              </div>
+              <ul className="space-y-4 text-[14px] text-white/80 font-sans">
+                <li className="flex gap-3 text-nxl-violet font-bold"><span>1.</span> Escreve o arquivo NXL (Fonte da Verdade).</li>
+                <li className="flex gap-3"><span>2.</span> IDE gera Dashboard e Calendário (Automático).</li>
+                <li className="flex gap-3"><span>3.</span> Agente lê o NXL e executa a postagem (Nativo).</li>
+                <li className="flex gap-3"><span>4.</span> Métricas voltam direto para o seu Código (Sync).</li>
+                <li className="flex gap-3"><span>5.</span> Versione tudo no Git. Total controle local.</li>
+              </ul>
+              <div className="mt-8 text-[11px] font-mono text-nxl-green uppercase tracking-tighter font-bold">Resultado: Foco absoluto. Fluxo contínuo.</div>
+            </div>
+          </div>
         </section>
 
         {/* Features */}
@@ -220,28 +287,34 @@ function App() {
           </div>
           
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
                 <tr className="border-b border-white/10">
                   <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">Feature</th>
                   <th className="py-4 px-6 text-nxl-violet font-sans text-sm uppercase">NexusIDE</th>
-                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">Notion/ClickUp</th>
+                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">Notion</th>
+                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">HubSpot</th>
+                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">n8n/Make</th>
                   <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">ChatGPT</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { f: "IA Auditável (Patches)", n: true, s: false, c: false },
-                  { f: "Sincronização de Views", n: true, s: "Manual", c: false },
-                  { f: "BYOK (Sua própria chave)", n: true, s: false, c: false },
-                  { f: "Offline-First", n: true, s: false, c: false },
-                  { f: "Compatível com Git", n: true, s: false, c: false },
+                  { f: "Planejamento Executável", n: "Sim (NXL)", s: "Texto Morto", h: "Formulários", a: "Só Lógica", c: "Só Chat" },
+                  { f: "IA Auditável (Patches)", n: true, s: false, h: false, a: false, c: false },
+                  { f: "Sync Multi-View", n: "Instantâneo", s: "Manual", h: "Engessado", a: "N/A", c: false },
+                  { f: "Agentes Autônomos", n: "Nativo", s: false, h: "Workflow", a: true, c: false },
+                  { f: "Propriedade dos Dados", n: "Cofre Local", s: "Cloud SaaS", h: "Cloud SaaS", a: "Cloud SaaS", c: "Cloud SaaS" },
+                  { f: "Compatível com Git", n: true, s: false, h: false, a: "JSON", c: false },
+                  { f: "BYOK (Custo de API)", n: true, s: false, h: false, a: true, c: false },
                 ].map((row, i) => (
                   <tr key={i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
                     <td className="py-6 px-6 font-sans font-medium">{row.f}</td>
-                    <td className="py-6 px-6"><Check className="text-nxl-green w-5 h-5" /></td>
-                    <td className="py-6 px-6 text-white/30">{row.s === false ? <X className="w-4 h-4" /> : row.s}</td>
-                    <td className="py-6 px-6 text-white/30">{row.c === false ? <X className="w-4 h-4" /> : row.c}</td>
+                    <td className="py-6 px-6 text-nxl-green font-bold text-[12px]">{row.n === true ? <Check className="w-5 h-5" /> : row.n}</td>
+                    <td className="py-6 px-6 text-white/30 text-[12px]">{row.s === false ? <X className="w-4 h-4" /> : row.s}</td>
+                    <td className="py-6 px-6 text-white/30 text-[12px]">{row.h === false ? <X className="w-4 h-4" /> : row.h}</td>
+                    <td className="py-6 px-6 text-white/30 text-[12px]">{row.a === false ? <X className="w-4 h-4" /> : row.a === true ? <Check className="w-4 h-4 opacity-40" /> : row.a}</td>
+                    <td className="py-6 px-6 text-white/30 text-[12px]">{row.c === false ? <X className="w-4 h-4" /> : row.c}</td>
                   </tr>
                 ))}
               </tbody>
@@ -249,7 +322,39 @@ function App() {
           </div>
         </section>
 
-        {/* Anti-Commodity Moat */}
+        {/* Manifesto Section */}
+        <section className="mb-48 mt-48 text-center max-w-2xl mx-auto">
+          <div className="p-3 bg-nxl-violet/10 rounded-full w-fit mx-auto mb-8">
+            <Sparkles className="w-6 h-6 text-nxl-violet" />
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black font-sans tracking-tight mb-8 leading-none">
+            Documentos morrem.<br/>
+            <span className="text-nxl-violet">Código vive.</span>
+          </h2>
+          <p className="text-xl md:text-2xl text-white/60 font-sans leading-relaxed">
+            Pare de escrever intenções em papéis digitais estáticos. 
+            Comece a programar o comportamento do seu marketing.
+          </p>
+          <div className="mt-12 font-mono text-[12px] text-white/20 uppercase tracking-[0.3em]">O Fim da Era do Planejamento Morto</div>
+        </section>
+
+        {/* Engine Specs Block */}
+        <section className="mb-32">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[#0A0A0A] border border-white/5 p-8 rounded-3xl">
+            {[
+              { label: "Parser Latency", val: "< 1ms", sub: "NXL Core Engine" },
+              { label: "Data Privacy", val: "100%", sub: "Local-First Vault" },
+              { label: "Git Support", val: "Native", sub: "Version Control" },
+              { label: "API Cost", val: "0% Margin", sub: "BYOK Infrastructure" },
+            ].map((spec, i) => (
+              <div key={i} className="text-center md:text-left">
+                <div className="text-[10px] text-white/30 uppercase font-bold mb-1">{spec.label}</div>
+                <div className="text-2xl font-black text-white mb-1">{spec.val}</div>
+                <div className="text-[11px] text-white/40">{spec.sub}</div>
+              </div>
+            ))}
+          </div>
+        </section>
         <section className="mb-32">
           <div className="kicker mb-8 text-center">Por que não somos uma commodity</div>
           <div className="text-center mb-12">
