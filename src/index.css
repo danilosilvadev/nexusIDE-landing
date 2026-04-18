@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+@layer base {
+  body {
+    @apply bg-background-main text-white font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+}
+
+@layer utilities {
+  .nx-dashed {
+    @apply border border-dashed border-white/10;
+  }
+  
+  .kicker {
+    @apply uppercase tracking-kicker text-[10px] sm:text-[11px] text-white/40 font-bold;
+  }
+
+  .text-glow-hero {
+    text-shadow: 0 0 40px oklch(0.66 0.22 300 / 0.5);
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, oklch(0.66 0.22 300) 0%, oklch(0.55 0.22 295) 100%);
+  }
+}
