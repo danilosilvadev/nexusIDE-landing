@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Terminal, Brain, Bot, Sparkles, ChevronDown, ChevronUp, Code2, Layers, Cpu, Command, Key, GitMerge, WifiOff } from 'lucide-react';
+import { Terminal, Brain, Bot, Sparkles, ChevronDown, ChevronUp, Code2, Layers, Cpu, Command, Key, GitMerge, WifiOff, Check, X, GitBranch, Zap, Globe } from 'lucide-react';
 import { ScrollCodeAnimation } from './components/ScrollCodeAnimation';
 import { InteractiveDemo } from './components/InteractiveDemo';
 
@@ -50,11 +50,21 @@ function App() {
           <p className="text-[16px] md:text-[18px] text-white/60 max-w-2xl font-sans mt-6">
             O primeiro Ambiente de Desenvolvimento (IDE) feito puramente para Agências Solo e Estrategistas Independentes. Não preencha formulários chatos. Escreva sua campanha.
           </p>
-          <div className="pt-8 flex items-center gap-4">
+          <div className="pt-8 flex flex-col items-center gap-4">
             <button className="px-6 py-3 rounded-md bg-gradient-to-r from-nxl-violet to-[#8b3fdc] text-white font-sans font-semibold text-[14px] shadow-[0_0_20px_oklch(0.66_0.22_300/0.4)] hover:shadow-[0_0_30px_oklch(0.66_0.22_300/0.6)] hover:-translate-y-0.5 transition-all flex items-center gap-2">
               <Terminal className="w-4 h-4" />
               Solicite um Convite Early Access
             </button>
+            <div className="flex items-center gap-2 text-[12px] text-white/40 font-sans">
+              <div className="flex -space-x-2">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className="w-6 h-6 rounded-full border-2 border-background-main bg-white/10 flex items-center justify-center overflow-hidden">
+                    <img src={`https://i.pravatar.cc/100?u=${i+20}`} alt="User" />
+                  </div>
+                ))}
+              </div>
+              <span>Junte-se a <strong>+2.400</strong> estrategistas na fila.</span>
+            </div>
           </div>
 
           {/* Philosophy Banner */}
@@ -158,7 +168,84 @@ function App() {
                 Escreveu <code className="font-mono text-[12px] text-nxl-violet bg-white/5 px-1.5 py-0.5 rounded">@gen "Crie um teaser misterioso"</code> em cima de um <code className="font-mono text-[12px] text-white/80 bg-white/5 px-1.5 py-0.5 rounded">{'<post>'}</code>? A IA gera o conteúdo na hora direto no seu arquivo. A anotação <code className="font-mono text-[12px] text-nxl-violet bg-white/5 px-1.5 py-0.5 rounded">@testAB</code> divide a renderização e métricas nativamente.
               </p>
             </div>
+          </div>
+        </section>
 
+        {/* Interoperability Section */}
+        <section className="mb-32">
+          <div className="kicker mb-8 text-center">Interoperabilidade Extrema</div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-black font-sans tracking-tight mb-4">
+              Sem silos. Sem amarras.<br/>
+              <span className="text-white/40">Sua estratégia é código puro.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-[#0A0A0A] border border-white/5 p-8 rounded-2xl flex flex-col items-center text-center">
+              <div className="p-4 bg-white/5 rounded-2xl mb-6">
+                <GitBranch className="w-8 h-8 text-nxl-violet" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">Git Native</h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Branching para campanhas? Sim. Faça o merge de uma nova estratégia de Black Friday sem quebrar o que já está rodando.
+              </p>
+            </div>
+            <div className="bg-[#0A0A0A] border border-white/5 p-8 rounded-2xl flex flex-col items-center text-center">
+              <div className="p-4 bg-white/5 rounded-2xl mb-6">
+                <Globe className="w-8 h-8 text-nxl-cyan" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">Aberto por Padrão</h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                O formato NXL é um padrão aberto. Use o <strong>Claude Code</strong>, <strong>Codex</strong> ou qualquer editor para refatorar suas campanhas.
+              </p>
+            </div>
+            <div className="bg-[#0A0A0A] border border-white/5 p-8 rounded-2xl flex flex-col items-center text-center">
+              <div className="p-4 bg-white/5 rounded-2xl mb-6">
+                <Zap className="w-8 h-8 text-nxl-green" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">AI Engine (No-Code)</h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Não quer codar? Use o chat premium integrado. Peça uma campanha e veja o Nexus escrever o código e sincronizar as views.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Table */}
+        <section className="mb-32">
+          <div className="kicker mb-8 text-center">Benchmark</div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black font-sans tracking-tight">NexusIDE vs O Status Quo</h2>
+          </div>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">Feature</th>
+                  <th className="py-4 px-6 text-nxl-violet font-sans text-sm uppercase">NexusIDE</th>
+                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">Notion/ClickUp</th>
+                  <th className="py-4 px-6 text-white/40 font-sans text-sm uppercase">ChatGPT</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { f: "IA Auditável (Patches)", n: true, s: false, c: false },
+                  { f: "Sincronização de Views", n: true, s: "Manual", c: false },
+                  { f: "BYOK (Sua própria chave)", n: true, s: false, c: false },
+                  { f: "Offline-First", n: true, s: false, c: false },
+                  { f: "Compatível com Git", n: true, s: false, c: false },
+                ].map((row, i) => (
+                  <tr key={i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                    <td className="py-6 px-6 font-sans font-medium">{row.f}</td>
+                    <td className="py-6 px-6"><Check className="text-nxl-green w-5 h-5" /></td>
+                    <td className="py-6 px-6 text-white/30">{row.s === false ? <X className="w-4 h-4" /> : row.s}</td>
+                    <td className="py-6 px-6 text-white/30">{row.c === false ? <X className="w-4 h-4" /> : row.c}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 
