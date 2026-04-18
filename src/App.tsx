@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Terminal, Brain, Bot, Sparkles, ChevronDown, ChevronUp, Code2, Layers, Cpu, Command, Key, GitMerge, WifiOff, Check, X, GitBranch, Zap, Globe } from 'lucide-react';
 import { ScrollCodeAnimation } from './components/ScrollCodeAnimation';
 import { InteractiveDemo } from './components/InteractiveDemo';
+import { BackgroundGlow } from './components/BackgroundGlow';
 
 function AccordionItem({ title, content }: { title: string, content: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,8 @@ function AccordionItem({ title, content }: { title: string, content: string }) {
 
 function App() {
   return (
-    <div className="min-h-screen bg-background-main selection:bg-nxl-violet/30 selection:text-white">
+    <div className="min-h-screen bg-background-main selection:bg-nxl-violet/30 selection:text-white relative">
+      <BackgroundGlow />
       {/* Navbar */}
       <nav className="border-b border-white/5 bg-background-main/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
